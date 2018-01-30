@@ -8,4 +8,4 @@ mysql_repo_url: https://dev.mysql.com/get/{{ mysql_repo_pkg }}
 slm_version: 1.0RC3
 slm_path: /vagrant/NetApp-Service-Level-Manager-{{ slm_version }}.bin
 slm_installer_option: "-y -d -r"
-slm_admin_passwd: "Netapp1!"
+slm_admin_passwd: "NetAppSLM1!"
