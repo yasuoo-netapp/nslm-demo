@@ -1,0 +1,60 @@
+---
+- name: Download epel latest repository.
+  get_url:
+    url: "{{ epel_repo_url }}"
+    dest: /tmp/{{ epel_repo_pkg }}
+
+- name: Add EPEL repository.
+  yum:
+    name: /tmp/{{ epel_repo_pkg }}
+    state: present
+
+- name: Download MySQL repository.
+  get_url:
+    url: "{{ mysql_repo_url }}"
+    dest: /tmp/{{ mysql_repo_pkg }}
+
+- name: Add MySQL repository.
+  yum:
+    name: /tmp/{{ mysql_repo_pkg }}
+    state: present
+
+- name: disable MySQL 5.7 repository.
+  ini_file:
+    path: /etc/yum.repos.d/mysql-community.repo
+    section: mysql57-community
+    option: enabled
+    value: 0
+    backup: yes
+
+- name: enable MySQL 5.6 repository.
+  ini_file:
+    path: /etc/yum.repos.d/mysql-community.repo
+    section: mysql56-community
+    option: enabled
+    value: 1
+    backup: yes
+
+- name: Install zip
+  yum:
+    name: zip
+
+- name: Install unzip
+  yum:
+    name: unzip
+
+- name: Install p7zip
+  yum:
+    name: p7zip
+
+- name: Install Java 1.8.0 OpenJDK Headless
+  yum:
+    name: java-1.8.0-openjdk-headless.x86_64
+
+- name: SET SELinux targeted permissive.
+  selinux:
+    policy: targeted
+    state: permissive
+
+- name: SLM Installer.
+  command: /bin/bash {{ slm_path }} {{ slm_installer_option }} -p {{ slm_admin_passwd }}

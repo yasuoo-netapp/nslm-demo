@@ -1,0 +1,11 @@
+---
+epel_repo_pkg: epel-release-latest-7.noarch.rpm
+epel_repo_url: https://dl.fedoraproject.org/pub/epel/{{ epel_repo_pkg  }}
+
+mysql_repo_pkg: mysql57-community-release-el7-11.noarch.rpm
+mysql_repo_url: https://dev.mysql.com/get/{{ mysql_repo_pkg }}
+
+slm_version: 1.0RC3
+slm_path: /vagrant/NetApp-Service-Level-Manager-{{ slm_version }}.bin
+slm_installer_option: "-y -d -r"
+slm_admin_passwd: "Netapp1!"
