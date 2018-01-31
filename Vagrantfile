@@ -4,6 +4,7 @@ USE_EXTERNAL_DISK=ENV['USE_EXTERNAL_DISK'] || false
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/centos-7"
   config.vm.network "forwarded_port", guest: 8443, host: 8443
+  config.vm.network "public_network", type: "dhcp"
 
   config.vm.provider "virtualbox" do |vb|
     vb.memory = "4096"
