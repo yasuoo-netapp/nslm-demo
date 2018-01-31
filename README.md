@@ -2,7 +2,7 @@
 
 NetApp Service Level Manager deployment with Vagrant / Ansible for demonstration.
 
-1. download NetApp-Service-Level-Manager-1.0RC3.bin from mysupport.netapp.com.
+1. download NetApp-Service-Level-Manager-1.0RC4.bin from mysupport.netapp.com.
 2. copy downloaded file to the same folder as Vagrantfile.
 3. vagrant up
 
